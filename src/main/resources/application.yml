@@ -1,0 +1,39 @@
+server:
+  port: 3040
+
+spring:
+  datasource:
+    master:
+      password: admin
+      url: jdbc:mysql://localhost:3306/sign-online4.0?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&autoReconnect=true&serverTimezone=Asia/Shanghai
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      #type: com.alibaba.druid.pool.DruidDataSource
+    cluster:
+      - key: k2
+        password: xxxx
+        url: jdbc:mysql://xxxxx:3306/fxq-api?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: xxxx
+      - key: k3
+        password: xxxx
+        url: jdbc:mysql://xxxxx:3306/hetong2?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&autoReconnect=true&serverTimezone=Asia/Shanghai
+        idle-timeout: 20000
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: xxxx
+        #type: com.zaxxer.hikari.HikariDataSource
+  jackson:
+    time-zone: GMT+8
+
+  main:
+    allow-bean-definition-overriding: true
+  #不解析freemarker路径针对前后端分离项目
+  freemarker:
+    check-template-location: false
+
+mybatis-plus:
+  mapper-locations: classpath*:com/dynamic/data/source/business/**/mapper/*Mapper.xml
+  type-aliases-package: com.dynamic.data.source.business.**.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
