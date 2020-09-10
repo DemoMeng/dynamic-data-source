@@ -2,6 +2,7 @@ package com.dynamic.data.source.business.k3.controller;
 
 
 import com.dynamic.data.source.business.k3.service.ITCompanyService;
+import com.dynamic.data.source.core.CommonConstant;
 import com.dynamic.data.source.core.annotation.TargetSource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class TCompanyController {
     private ITCompanyService itCompanyService;
 
     @PostMapping("/list")
-    @TargetSource(value = "k3")
+    @TargetSource(value = CommonConstant.k3)
     public Object list(){
         return itCompanyService.getLimitList();
     }

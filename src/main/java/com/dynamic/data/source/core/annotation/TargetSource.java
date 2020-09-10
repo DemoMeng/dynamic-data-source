@@ -1,5 +1,7 @@
 package com.dynamic.data.source.core.annotation;
 
+import com.dynamic.data.source.core.CommonConstant;
+
 import java.lang.annotation.*;
 
 /**
@@ -12,7 +14,7 @@ import java.lang.annotation.*;
 @Documented
 public @interface TargetSource {
 
-    /**默认master数据源-参考application-dev配置详情*/
-    String value() default "master";
+    /**默认master数据源-参考application配置详情*/
+    String value() default CommonConstant.master;
 
 }
